@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   PALETTE (from screenshot):
+   Main Background : #14161A
+   Grid Lines      : #1A1D23
+   Cards           : #1C2128
+   Card Border     : #2A313C
+   Primary Text    : #F3F4F6
+   Secondary Text  : #A1AAB8
+   Accent Blue     : #3B82F6
+   Accent Purple   : #7C3AED
+   ═══════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --bg:        #14161A;
+    --bg-grid:   #1A1D23;
+    --bg-card:   #1C2128;
+    --bg-card-h: #202830;
+    --border:    #2A313C;
+    --border-h:  #3B82F6;
+    --text:      #F3F4F6;
+    --text-sec:  #A1AAB8;
+    --blue:      #3B82F6;
+    --purple:    #7C3AED;
+    /* gradient helper */
+    --accent:    #3B82F6;
+  }
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #14161A;
+    color: #F3F4F6;
+    font-family: var(--font-geist-sans, "Inter", system-ui, sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  ::selection { background: rgba(59,130,246,0.25); }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(59,130,246,0.3);
+    border-radius: 99px;
+  }
+}
+
+@layer utilities {
+  /* ── Gradient name text: blue → purple ── */
+  .text-gradient {
+    background: linear-gradient(110deg, #60a5fa 0%, #818cf8 45%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Hero eyebrow: "FINAL YEAR STUDENT · THAPAR INSTITUTE · 8.62 CGPA" ── */
+  .eyebrow-hero {
+    font-family: var(--font-geist-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A1AAB8;
+  }
+
+  /* ── Section eyebrow labels ── */
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #3B82F6;
+  }
+
+  /* ── Dark card ── */
+  .card-dark {
+    background: #1C2128;
+    border: 1px solid #2A313C;
+    border-radius: 1rem;
+    transition: border-color 0.2s, background 0.2s, transform 0.25s;
+  }
+  .card-dark:hover {
+    border-color: #3B82F6;
+    background: #202830;
+    transform: translateY(-2px);
+  }
+
+  /* ── Skill pill: exactly card colour with border ── */
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    background: #1C2128;
+    border: 1px solid #2A313C;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    color: #A1AAB8;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-pill:hover {
+    border-color: #3B82F6;
+    color: #F3F4F6;
+  }
+
+  /* ── Specialty tag pill (about section) ── */
+  .spec-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.15rem;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 999px;
+    font-size: 0.95rem;
+    color: #93c5fd;
+    font-weight: 500;
+    font-family: var(--font-geist-mono, monospace);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .spec-tag:hover {
+    background: rgba(59,130,246,0.14);
+    border-color: rgba(59,130,246,0.5);
+  }
+
+  /* ── About link buttons (image 3 style) ── */
+  .about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    background: #1C2128;
+    border: 1px solid #2A313C;
+    border-radius: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #A1AAB8;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .about-btn:hover {
+    border-color: #3B82F6;
+    background: #202830;
+    color: #F3F4F6;
+  }
+  .about-btn svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    color: #3B82F6;
+    flex-shrink: 0;
+  }
+}
